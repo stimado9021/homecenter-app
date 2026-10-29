@@ -3,6 +3,7 @@ services:
     name: manconstruc-backend
     env: docker
     plan: free
-    dockerfilePath: ./backend/Dockerfile
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
     healthCheckPath: /api/health
     autoDeploy: true
