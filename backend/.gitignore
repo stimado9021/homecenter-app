@@ -1,0 +1,43 @@
+# .NET Core / .NET 5+ binaries and folders
+bin/
+obj/
+Debug/
+Release/
+publish/
+
+# Visual Studio files
+.vs/
+*.csproj.user
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Package files
+*.nupkg
+# Paket dependency manager
+paket-files/
+FAKE-*.csx
+paket.lock
+
+# Editor/IDE
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Environment configuration - SECRETS
+appsettings.json
+appsettings.*.json
+!appsettings.example.json
+
+# Test coverage
+coverage*
+*.coverlet.report.xml
+
+# Temporary files
+*.tmp
+*.temp
