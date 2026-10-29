@@ -1,0 +1,4 @@
+#!/bin/sh
+# Path to detect-secrets.ps1 relative to this hook script:
+#   .git/hooks/pre-commit -> ../detect-secrets.ps1
+exec powershell -NoProfile -ExecutionPolicy Bypass -Command "& { & '../detect-secrets.ps1' }"
