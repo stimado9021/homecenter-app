@@ -12,7 +12,7 @@ WORKDIR "/src/ManConstruc.Api"
 RUN dotnet build "ManConstruc.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "ManConstruc.Api.csproj" -c Release -o /app/publish /p:PublishProfile=DefaultContainer
+RUN dotnet publish "ManConstruc.Api.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
