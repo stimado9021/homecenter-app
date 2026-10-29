@@ -6,10 +6,3 @@ services:
     dockerfilePath: ./backend/Dockerfile
     healthCheckPath: /api/health
     autoDeploy: true
-
-  - type: web
-    name: manconstruc-frontend
-    env: docker
-    plan: free
-    dockerfilePath: ./frontend/Dockerfile
-    autoDeploy: true
