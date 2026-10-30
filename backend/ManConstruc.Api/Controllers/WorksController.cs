@@ -179,6 +179,10 @@ public class WorksController : ControllerBase
             var estimated = await _aiPricing.EstimatePricesAsync(input, cancellationToken);
             return Ok(estimated);
         }
+        catch (HttpRequestException ex) when (ex.StatusCode == System.Net.HttpStatusCode.PaymentRequired)
+        {
+            return StatusCode(502, new { message = "La cuenta de Deepseek no tiene saldo suficiente. Recarga créditos en deepseek.com.", detail = ex.Message });
+        }
         catch (Exception ex)
         {
             return StatusCode(502, new { message = "No se pudo estimar precios con IA.", detail = ex.Message });
@@ -202,6 +206,10 @@ public class WorksController : ControllerBase
         {
             var generated = await _aiPricing.GenerateWorkFromDescriptionAsync(request.Description, cancellationToken);
             return Ok(generated);
+        }
+        catch (HttpRequestException ex) when (ex.StatusCode == System.Net.HttpStatusCode.PaymentRequired)
+        {
+            return StatusCode(502, new { message = "La cuenta de Deepseek no tiene saldo suficiente. Recarga créditos en deepseek.com.", detail = ex.Message });
         }
         catch (Exception ex)
         {
